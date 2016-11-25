@@ -17,9 +17,7 @@
 package no.finntech;
 
 import org.apache.maven.artifact.Artifact;
-import org.apache.maven.artifact.DefaultArtifact;
 import org.apache.maven.model.Dependency;
-import org.apache.maven.project.MavenProject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,7 +34,7 @@ public class ArtifactHelper {
     }
 
     public static Map<String,Object> getProperties(Artifact artifact){
-        Map  propertyMap = new HashMap<String,Object>();
+        Map<String, Object>  propertyMap = new HashMap<String,Object>();
         propertyMap.put("name",getId(artifact));
         propertyMap.put("groupId",artifact.getGroupId());
         propertyMap.put("artifactId",artifact.getArtifactId());
@@ -47,7 +45,7 @@ public class ArtifactHelper {
     }
 
     public static Map<String,Object> getProperties(Dependency dependency){
-        Map  propertyMap = new HashMap<String,Object>();
+        Map<String, Object>  propertyMap = new HashMap<String,Object>();
         propertyMap.put("name",getId(dependency));
         propertyMap.put("groupId",dependency.getGroupId());
         propertyMap.put("artifactId",dependency.getArtifactId());
