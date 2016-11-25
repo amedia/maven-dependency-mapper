@@ -2,3 +2,6 @@ atlassian-ide-plugin.xml
 *.iml
 target
 .idea
+.classpath
+.project
+.settings/
