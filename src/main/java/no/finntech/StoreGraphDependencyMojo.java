@@ -107,6 +107,7 @@ public class StoreGraphDependencyMojo
     private Node makeNode(Artifact artifact) {
         String completeId = ArtifactHelper.splice(artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion());
         Node projectNode = restAPI.getOrCreateNode(index, COMPLETE_ID, completeId, ArtifactHelper.getProperties(artifact));
+        projectNode.addLabel(() -> "Artifact");
         restAPI.getIndex(ARTIFACT).add(projectNode, GROUP_ID_AND_ARTIFACT_ID, ArtifactHelper.splice(artifact.getGroupId(), artifact.getArtifactId()));
         restAPI.getIndex(ARTIFACT).add(projectNode, COMPLETE_ID, completeId);
         return projectNode;
