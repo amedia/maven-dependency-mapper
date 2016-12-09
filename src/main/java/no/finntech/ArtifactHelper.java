@@ -40,6 +40,7 @@ public class ArtifactHelper {
         propertyMap.put("artifactId",artifact.getArtifactId());
         propertyMap.put("version",artifact.getVersion());
         propertyMap.put("groupIdAndArtifactId", artifact.getGroupId() + "#" + artifact.getArtifactId());
+        propertyMap.put("artifactIdAndVersion", artifact.getArtifactId() + ":" + artifact.getVersion());
         propertyMap.put("prettyPrint", artifact.getGroupId() + ":" + artifact.getArtifactId() + ":" + artifact.getVersion());
         return propertyMap;
     }
@@ -51,6 +52,7 @@ public class ArtifactHelper {
         propertyMap.put("artifactId",dependency.getArtifactId());
         propertyMap.put("version",dependency.getVersion());
         propertyMap.put("groupIdAndArtifactId", dependency.getGroupId() + "#" + dependency.getArtifactId());
+        propertyMap.put("artifactIdAndVersion", dependency.getArtifactId() + ":" + dependency.getVersion());
         propertyMap.put("prettyPrint", dependency.getGroupId() + ":" + dependency.getArtifactId() + ":" + dependency.getVersion());
         return propertyMap;
     }
