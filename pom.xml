@@ -15,8 +15,6 @@
 *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 -->
-
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -29,6 +27,12 @@
 
     <name>Maven dependency mapper plugin</name>
     <url>http://www.finn.no</url>
+    
+    <scm>
+        <connection>scm:git:ssh://git@github.com/amedia/maven-dependency-mapper.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/amedia/maven-dependency-mapper.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -119,6 +123,21 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.9.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
     <repositories>
@@ -134,4 +153,18 @@
             </snapshots>
         </repository>
     </repositories>
+    <distributionManagement>
+        <repository>
+            <id>api-repository</id>
+            <name>API Repository</name>
+            <url>scpexe://maven.api.no/usr/local/maven/repository</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>nexus Snapshot Repository</name>
+            <url>http://ci.dev.api.no/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+
+    </distributionManagement>
 </project>
