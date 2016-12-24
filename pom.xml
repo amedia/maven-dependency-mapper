@@ -20,7 +20,7 @@
 
     <groupId>no.finntech</groupId>
     <artifactId>dependency-mapper-maven-plugin</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.4-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
 
@@ -75,6 +75,15 @@
 
 
     <build>
+       <extensions>
+            <!-- maven3 will need wagon-ssh extension in order to be able to release,
+            Using external variant in order to retain keys, etc -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>2.5</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
